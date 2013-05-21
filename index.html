@@ -64,7 +64,7 @@
 <em>Alphanumeric</em>: Can contain any allowable characters, including special characters such as hyphens. <code>LJBF</code> unless otherwise stated.</li>
 </ul>
 </li>
-</ul><hr><h3>attributeBytes <a></a>
+</ul><hr><h3>attributeBytes <a name="wa1-attributeBytes"></a>
 </h3>
 
 <ul>
@@ -121,7 +121,7 @@
 <td>Blank</td>
 <td>None of the above. In particular, all addresses on the input street are un-hyphenated.</td>
 </tr>
-</table><h3>bbl <a></a>
+</table><h3>bbl <a name="wa1-bbl"></a>
 </h3>
 
 <ul>
@@ -156,22 +156,22 @@
 </tr>
 </table><p><em>Description</em>: The BBL (“borough-block-and-lot”) identifies a parcel of real property in New York City, called a tax lot. The BBL is composed of the concatenation of the Borough Code, Tax Block and Tax Lot. If the property is a condominium (indicated by the Condominium Flag), the WA2 BBL field contains the billing BBL of the condominium.</p>
 
-<h3>bblBoroughCode <a></a>
+<h3>bblBoroughCode <a name="wa1-bblBoroughCode"></a>
 </h3>
 
 <p><em>See</em>: <a href="#wa1-bbl">bbl</a></p>
 
-<h3>bblTaxblock <a></a>
+<h3>bblTaxblock <a name="wa1-bblTaxblock"></a>
 </h3>
 
 <p><em>See</em>: <a href="#wa1-bbl">bbl</a></p>
 
-<h3>bblTaxlot <a></a>
+<h3>bblTaxlot <a name="wa1-bblTaxlot"></a>
 </h3>
 
 <p><em>See</em>: <a href="#wa1-bbl">bbl</a></p>
 
-<h3>buildingIdentificationNumber <a></a>
+<h3>buildingIdentificationNumber <a name="wa1-buildingIdentificationNumber"></a>
 </h3>
 
 <ul>
@@ -181,7 +181,7 @@
 <em>Length and Format</em>: 7 bytes. Numeric</li>
 </ul><p><em>Description</em>: Building Identification Number (BIN). A permanent BIN is a seven-digit numerical identifier unique to each building in the City of New York. The first digit is the Borough Code. There are also two types of temporary BINs; those maintained by the Dept. of Buildings (DOB) and those maintained by the Dept. of City Planning (DCP). The temporary BINs assigned by DOB contain the number ‘8’ as the second digit, and the temporary BINs assigned by DCP contain a ‘9’ in the same position. DCP is currently in the process of phasing out all of its temporary BINs.</p>
 
-<h3>firstBoroughName <a></a>
+<h3>firstBoroughName <a name="wa1-firstBoroughName"></a>
 </h3>
 
 <ul>
@@ -197,7 +197,7 @@ BROOKLYN
 STATEN IS
 </code></pre>
 
-<h3>firstStreetCode <a></a>
+<h3>firstStreetCode <a name="wa1-firstStreetCode"></a>
 </h3>
 
 <ul>
@@ -207,7 +207,7 @@ STATEN IS
 <em>Length and Format</em>: 11 bytes. Numeric</li>
 </ul><p><em>Description</em>: 11 digit street code composed of 1 byte borough code and 10 digit street code of the first input street. See <a href="#types-b10sc">B10SC</a>.</p>
 
-<h3>firstStreetNameNormalized <a></a>
+<h3>firstStreetNameNormalized <a name="wa1-firstStreetNameNormalized"></a>
 </h3>
 
 <ul>
@@ -217,7 +217,7 @@ STATEN IS
 <em>Length and Format</em>: 32 bytes. Alphanumeric</li>
 </ul><p><em>Description</em>: Normalized name of first input street</p>
 
-<h3>geosupportReturnCode <a></a>
+<h3>geosupportReturnCode <a name="wa1-geosupportReturnCode"></a>
 </h3>
 
 <ul>
@@ -231,7 +231,7 @@ STATEN IS
 <li>A GRC value of ‘00’ indicates unconditionally successful completion.</li>
 <li>A GRC value of ‘01’ indicates a warning condition.</li>
 <li>A GRC value other than ‘00’ or ‘01’ signifies unsuccessful completion, or rejection, caused by either a system error or a user error.</li>
-</ul><h3>houseNumber <a></a>
+</ul><h3>houseNumber <a name="wa1-houseNumber"></a>
 </h3>
 
 <ul>
@@ -241,7 +241,17 @@ STATEN IS
 <em>Length and Format</em>: 16 bytes. Alphanumeric</li>
 </ul><p><em>Description</em>: Normalized address ('house') number. See <a href="#types-houseNumber">house numbers</a> </p>
 
-<h3>message <a></a>
+<h3>houseNumberSortFormat <a name="wa1-houseNumberSortFormat"></a>
+</h3>
+
+<ul>
+<li>
+<em>Functions</em>: address, place</li>
+<li>
+<em>Length and Format</em>: 11 bytes. Alphanumeric</li>
+</ul><p><em>Description</em>: Normalized address ('house') number in 'sort' format. See <a href="#types-houseNumber">house numbers</a> </p>
+
+<h3>message <a name="wa1-message"></a>
 </h3>
 
 <ul>
@@ -251,7 +261,17 @@ STATEN IS
 <em>Length and Format</em>: 80 bytes. Alphanumeric</li>
 </ul><p><em>Description</em>: For all calls that generate warnings or rejects, the message field contains an appropriate message.</p>
 
-<h3>reasonCode  <a></a>
+<h3>numberOfStreetCodesAndNamesInList <a name="wa1-numberOfStreetCodesAndNamesInList"></a>
+</h3>
+
+<ul>
+<li>
+<em>Functions</em>: address, blockface, intersection, place</li>
+<li>
+<em>Length and Format</em>: 2 bytes. Numeric inclusive range between 0 and 10</li>
+</ul><p><em>Description</em>: Indicates the number of up to ten street codes (<code>streetCode1</code>..<code>streetCode10</code>) and street names (<code>streetName1</code>..<code>streetName10</code>) returned. </p>
+
+<h3>reasonCode  <a name="wa1-reasonCode"></a>
 </h3>
 
 <ul>
@@ -261,7 +281,7 @@ STATEN IS
 <em>Length and Format</em>: 1 byte. Alphanumeric</li>
 </ul><p><em>Description</em>: For all warnings and for some rejects, a value is returned in the Reason Code field, specifying more precisely the reason for the warning or rejection.</p>
 
-<h3>secondStreetCode <a></a>
+<h3>secondStreetCode <a name="wa1-secondStreetCode"></a>
 </h3>
 
 <ul>
@@ -271,7 +291,7 @@ STATEN IS
 <em>Length and Format</em>: 11 bytes. Numeric</li>
 </ul><p><em>Description</em>: 11 digit street code composed of 1 byte borough code and 10 digit street code of the second input street. See <a href="#types-b10sc">B10SC</a>.</p>
 
-<h3>secondStreetNameNormalized <a></a>
+<h3>secondStreetNameNormalized <a name="wa1-secondStreetNameNormalized"></a>
 </h3>
 
 <ul>
@@ -281,7 +301,32 @@ STATEN IS
 <em>Length and Format</em>: 32 bytes. Alphanumeric</li>
 </ul><p><em>Description</em>: Normalized name of second input street</p>
 
-<h3>thirdStreetCode <a></a>
+<h3>streetAttributeIndicator <a name="wa1-streetAttributeIndicator"></a>
+</h3>
+
+<p><em>See</em>: <a href="#wa1-attributeBytes">attributeBytes</a></p>
+
+<h3>streetCode1..10 <a name="streetCode"></a>
+</h3>
+
+<ul>
+<li>
+<em>Functions</em>: address, blockface, intersection, place</li>
+<li>
+<em>Length and Format</em>: 8 bytes. Numeric</li>
+</ul><p><em>Description</em>: List of up to 10 8 digit street codes. Returns cross street codes for successful call or possible street codes for unsuccessful call. See <a href="#types-b7sc">B7SC</a></p>
+
+<h3>streetName1..10 <a name="streetCode"></a>
+</h3>
+
+<ul>
+<li>
+<em>Functions</em>: address, blockface, intersection, place</li>
+<li>
+<em>Length and Format</em>: 32 bytes. Alphanumeric</li>
+</ul><p><em>Description</em>: List of up to 10 street names. Returns cross street names for successful call or possible street names for unsuccessful call.</p>
+
+<h3>thirdStreetCode <a name="wa1-thirdStreetCode"></a>
 </h3>
 
 <ul>
@@ -291,7 +336,7 @@ STATEN IS
 <em>Length and Format</em>: 11 bytes. Numeric</li>
 </ul><p><em>Description</em>: 11 digit street code composed of 1 byte borough code and 10 digit street code of the third input street. See <a href="#types-b10sc">B10SC</a>.</p>
 
-<h3>thirdStreetNameNormalized <a></a>
+<h3>thirdStreetNameNormalized <a name="wa1-thirdStreetNameNormalized"></a>
 </h3>
 
 <ul>
@@ -305,12 +350,22 @@ STATEN IS
 
 <p>This section defines New York City-specific datatypes.</p>
 
-<h3>B10SC <a></a>
+<h3>B10SC <a name="types-b10sc"></a>
 </h3>
 
-<p>The B10SC is an eleven digit street code that is composed of the 1 digit borough code plus the 10 digit borough-specific street code.</p>
+<p>The B10SC is an 11 digit street code that is composed of the 1 digit borough code plus the 10 digit borough-specific street code.</p>
 
-<h3>House Number <a></a>
+<h3>B7SC <a name="types-b7sc"></a>
+</h3>
+
+<p>The B7SC is an 8 digit street code that is composed of the 1 digit borough code plus the 7 digit street code that identify the "principal" street. Composed of B5SC + Local Group Code.</p>
+
+<h3>B5SC <a name="types-b5sc"></a>
+</h3>
+
+<p>The B5SC is an 6 digit street code that is composed of the 1 digit borough code plus the 5 digit street code that identify the street. The B5SC is identical across all street "aliases" (B5SC, B7SC, B10SC)</p>
+
+<h3>House Number <a name="types-houseNumber"></a>
 </h3>
 
 <p>Address numbers identify buildings along streets, and are combined with street names and addressable place names or with street codes (as surrogates of street names or place names) to form addresses. Address numbers are commonly called ‘house’ numbers (although this term is a misnomer, since many addresses refer to buildings other than houses). New York City house numbers consist of a ‘basic house number’, possibly followed by a ‘house number suffix’. (Note: the basic house number and house number suffix are not to be confused with the digits to the left and right of the hyphen in a hyphenated house number. For example, in the Queens address ‘240-55 1/3 DEPEW AVENUE’, ‘240-55’ is the basic house number, and is hyphenated; ‘1/3’ is the house number suffix.) Only a very small percentage of New York City addresses have house number suffixes.</p>
@@ -331,19 +386,16 @@ STATEN IS
 <a href="#wa1-firstStreetCode">firstStreetCode</a>
 <a href="#wa1-firstStreetNameNormalized">firstStreetNameNormalized</a>
 <a href="#wa1-geosupportReturnCode">geosupportReturnCode</a>
-<a href="#wa1-">houseNumberSortFormat</a>
-<a href="#wa1-">houseNumber</a>
-<a href="#wa1-">lowHouseNumberSortFormat</a>
-<a href="#wa1-">lowHouseNumber</a>
+<a href="#wa1-houseNumberSortFormat">houseNumberSortFormat</a>
+<a href="#wa1-houseNumber">houseNumber</a>
 <a href="#wa1-message">message</a>
-<a href="#wa1-">nin</a>
-<a href="#wa1-">numberOfStreetCodesAndNamesInList</a>
+<a href="#wa1-numberOfStreetCodesAndNamesInList">numberOfStreetCodesAndNamesInList</a>
 <a href="#wa1-reasonCode">reasonCode</a>
 <a href="#wa1-secondStreetCode">secondStreetCode</a>
 <a href="#wa1-secondStreetNameNormalized">secondStreetNameNormalized</a>
-<a href="#wa1-">streetAttributeIndicator</a>
-<a href="#wa1-">streetCode<code>N</code></a>
-<a href="#wa1-">streetName<code>N</code></a>
+<a href="#wa1-attributeBytes">streetAttributeIndicator</a>
+<a href="#wa1-streetCode">streetCode1..10</a>
+<a href="#wa1-streetName">streetName1..10</a>
 <a href="#wa1-thirdStreetCode">thirdStreetCode</a>
 <a href="#wa1-thirdStreetNameNormalized">thirdStreetNameNormalized</a></p>
 
