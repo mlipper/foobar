@@ -1,112 +1,367 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Foobar by mlipper</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Geoclient : Geoclient API Documentation" />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Geoclient</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
-        <h1 class="header">Foobar</h1>
-        <p class="header">Provides frobs to foo using the bar library</p>
 
-        <ul>
-          <li class="download"><a class="buttons" href="https://github.com/mlipper/foobar/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/mlipper/foobar/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/mlipper/foobar">View On GitHub</a></li>
-        </ul>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/mlipper/geoclient-api-doc">View on GitHub</a>
 
-        <p class="header">This project is maintained by <a class="header name" href="https://github.com/mlipper">mlipper</a></p>
+          <h1 id="project_title">Geoclient</h1>
+          <h2 id="project_tagline">Geoclient API Documentation</h2>
 
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/mlipper/geoclient-api-doc/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/mlipper/geoclient-api-doc/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
-      </header>
-      <section>
-        <h3>Welcome to GitHub Pages.</h3>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>Geoclient Data Dictionary</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>This document describes values returned by the Geocilent application from its calls to the Department of City Planning's Geosupport application. </p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<p>The field documentation section describes each individual field returned by the various supported functions. The following information is provided for each field where applicable:</p>
+
+<ul>
+<li>
+<strong>Description</strong> - Describes the field's meaning</li>
+<li>
+<strong>Functions</strong> - Which calls return this field </li>
+<li>
+<strong>Valid Values and Codes</strong> - The values or ranges of values valid for this data item and, if the item consists of codes, the meaning of each code value.</li>
+<li>
+<strong>Length and Format</strong> -  The length of this data item in bytes, and a description of its format, including whether it is numeric, alphabetic or alphanumeric (these terms are defined below); whether it contains any special editing characters; and for numeric items, the justification and the fill character.  The following terms and abbreviations are used:
+
+<ul>
+<li>
+<em>RJ</em> = Right-Justified</li>
+<li>
+<em>LJ</em> = Left-Justified</li>
+<li>
+<em>ZF</em> = Zero-Filled</li>
+<li>
+<em>BF</em> = Blank-Filled</li>
+<li>
+<em>Numeric</em>: Contains only the digits 0 through 9, and possibly blanks serving as fill characters only.</li>
+<li>
+<em>Alphabetic</em>: Contains letters of the alphabet only. <code>LJBF</code> unless otherwise stated.</li>
+<li>
+<em>Alphanumeric</em>: Can contain any allowable characters, including special characters such as hyphens. <code>LJBF</code> unless otherwise stated.</li>
+</ul>
+</li>
+</ul><hr><h3>attributeBytes <a></a>
+</h3>
+
+<ul>
+<li>
+<em>Id</em>: attributeBytes<br>
+</li>
+<li>
+<em>Functions</em>: address, intersection, place</li>
+<li>
+<em>Length and Format</em>: 1 byte character<br><em>Description</em>: Street attribute indicator which denotes certain characteristics of selected streets.<br>
+</li>
+</ul><table>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+<tr>
+<td>E</td>
+<td>Input street is entirely in Edgewater Park (a Bronx neighborhood that has special addressing characteristics).</td>
+</tr>
+<tr>
+<td>F</td>
+<td>Input street is partly in Edgewater Park and partly outside of it.</td>
+</tr>
+<tr>
+<td>G</td>
+<td>NAP of a complex.</td>
+</tr>
+<tr>
+<td>H</td>
+<td>All house numbers on input street are hyphenated.</td>
+</tr>
+<tr>
+<td>I</td>
+<td>Named Intersection</td>
+</tr>
+<tr>
+<td>M</td>
+<td>House numbers on input street are of mixed hyphenation, i.e., some are hyphenated and some are not.</td>
+</tr>
+<tr>
+<td>N</td>
+<td>Input street is a Non-Addressable Place Name (NAP).</td>
+</tr>
+<tr>
+<td>S</td>
+<td>Front Truncated Street Name.</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Nap Of a Constituent Entity of a Complex</td>
+</tr>
+<tr>
+<td>Blank</td>
+<td>None of the above. In particular, all addresses on the input street are un-hyphenated.</td>
+</tr>
+</table><h3>bbl <a></a>
+</h3>
+
+<ul>
+<li>
+<em>Functions</em>: address, bbl, bin, place</li>
+<li>
+<em>Length and Format</em>: 10 bytes, Numeric. The first 6 bytes of the standard BBL consists of the 1-byte borough code followed by the 5-byte tax block field, which contains the tax block value right-justified and zero-filled. The last 4 bytes of the 10-byte standard BBL is the standard tax lot field, which contains the tax lot value right-justified and zero-filled.</li>
+</ul><table>
+<tr>
+<th>Field</th>
+<th align="right">Length</th>
+<th align="right">Position</th>
+<th>Comments</th>
+</tr>
+<tr>
+<td>Boro Code</td>
+<td align="right">1</td>
+<td align="right">1-1</td>
+<td></td>
+</tr>
+<tr>
+<td>Tax Block</td>
+<td align="right">5</td>
+<td align="right">2-6</td>
+<td>RJZF</td>
+</tr>
+<tr>
+<td>Tax Lot</td>
+<td align="right">4</td>
+<td align="right">7-10</td>
+<td>RJZF</td>
+</tr>
+</table><p><em>Description</em>: The BBL (“borough-block-and-lot”) identifies a parcel of real property in New York City, called a tax lot. The BBL is composed of the concatenation of the Borough Code, Tax Block and Tax Lot. If the property is a condominium (indicated by the Condominium Flag), the WA2 BBL field contains the billing BBL of the condominium.</p>
+
+<h3>bblBoroughCode <a></a>
+</h3>
+
+<p><em>See</em>: <a href="#wa1-bbl">bbl</a></p>
+
+<h3>bblTaxblock <a></a>
+</h3>
+
+<p><em>See</em>: <a href="#wa1-bbl">bbl</a></p>
+
+<h3>bblTaxlot <a></a>
+</h3>
+
+<p><em>See</em>: <a href="#wa1-bbl">bbl</a></p>
+
+<h3>buildingIdentificationNumber <a></a>
+</h3>
+
+<ul>
+<li>
+<em>Functions</em>: address, bbl, bin, place</li>
+<li>
+<em>Length and Format</em>: 7 bytes. Numeric</li>
+</ul><p><em>Description</em>: Building Identification Number (BIN). A permanent BIN is a seven-digit numerical identifier unique to each building in the City of New York. The first digit is the Borough Code. There are also two types of temporary BINs; those maintained by the Dept. of Buildings (DOB) and those maintained by the Dept. of City Planning (DCP). The temporary BINs assigned by DOB contain the number ‘8’ as the second digit, and the temporary BINs assigned by DCP contain a ‘9’ in the same position. DCP is currently in the process of phasing out all of its temporary BINs.</p>
+
+<h3>firstBoroughName <a></a>
+</h3>
+
+<ul>
+<li>
+<em>Functions</em>: address, bbl, bin, blockface, intersection, place</li>
+<li>
+<em>Length and Format</em>: 9 bytes</li>
+</ul><p><em>Description</em>: Normalized borough name of the first input boroughCode. Possible values are one of:</p>
+
+<pre><code>MANHATTAN
+BRONX
+BROOKLYN
+STATEN IS
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h3>firstStreetCode <a></a>
+</h3>
 
-<table>
-<tr>
-<th>Column Uno</th>
-<th>Column Dos</th>
-</tr>
-<tr>
-<td>Some text</td>
-<td>More text</td>
-</tr>
-<tr>
-<td>Some text</td>
-<td>More text</td>
-</tr>
-<tr>
-<td>Some text</td>
-<td>More text</td>
-</tr>
-<tr>
-<td>Some text</td>
-<td>More text</td>
-</tr>
-</table><table>
-<tr>
-<th>Column Uno</th>
-<td>Some text</td>
-<td>More text</td>
-</tr>
-<tr>
-<th>Column Dos</th>
-<td>Some text</td>
-<td>More text</td>
-</tr>
-<tr>
-<th>Column Tres</th>
-<td>Some text</td>
-<td>More text</td>
-</tr>
-<tr>
-<th>Column Cuatro</th>
-<td>Some text</td>
-<td>More text</td>
-</tr>
-</table><ul>
-<li>Here is a list item</li>
-<li>Another one here</li>
-</ul><h3>Designer Templates</h3>
+<ul>
+<li>
+<em>Functions</em>: address, blockface, intersection, place</li>
+<li>
+<em>Length and Format</em>: 11 bytes. Numeric</li>
+</ul><p><em>Description</em>: 11 digit street code composed of 1 byte borough code and 10 digit street code of the first input street. See <a href="#types-b10sc">B10SC</a>.</p>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<h3>firstStreetNameNormalized <a></a>
+</h3>
 
-<h3>Rather Drive Stick?</h3>
+<ul>
+<li>
+<em>Functions</em>: address, blockface, intersection, place</li>
+<li>
+<em>Length and Format</em>: 32 bytes. Alphanumeric</li>
+</ul><p><em>Description</em>: Normalized name of first input street</p>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<h3>geosupportReturnCode <a></a>
+</h3>
 
-<h3>Authors and Contributors</h3>
+<ul>
+<li>
+<em>Functions</em>: address, bbl, bin, blockface, intersection, place</li>
+<li>
+<em>Length and Format</em>: 2 bytes. Alphanumeric</li>
+</ul><p><em>Description</em>: The GRC is a two-byte character item into which Geosupport inserts a value before returning control to the calling application, as follows.</p>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<ul>
+<li>A GRC value of ‘00’ indicates unconditionally successful completion.</li>
+<li>A GRC value of ‘01’ indicates a warning condition.</li>
+<li>A GRC value other than ‘00’ or ‘01’ signifies unsuccessful completion, or rejection, caused by either a system error or a user error.</li>
+</ul><h3>houseNumber <a></a>
+</h3>
 
-<h3>Support or Contact</h3>
+<ul>
+<li>
+<em>Functions</em>: address, place</li>
+<li>
+<em>Length and Format</em>: 16 bytes. Alphanumeric</li>
+</ul><p><em>Description</em>: Normalized address ('house') number. See <a href="#types-houseNumber">house numbers</a> </p>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<h3>message <a></a>
+</h3>
+
+<ul>
+<li>
+<em>Functions</em>: address, bbl, bin, blockface, intersection, place</li>
+<li>
+<em>Length and Format</em>: 80 bytes. Alphanumeric</li>
+</ul><p><em>Description</em>: For all calls that generate warnings or rejects, the message field contains an appropriate message.</p>
+
+<h3>reasonCode  <a></a>
+</h3>
+
+<ul>
+<li>
+<em>Functions</em>: address, bbl, bin, blockface, intersection, place</li>
+<li>
+<em>Length and Format</em>: 1 byte. Alphanumeric</li>
+</ul><p><em>Description</em>: For all warnings and for some rejects, a value is returned in the Reason Code field, specifying more precisely the reason for the warning or rejection.</p>
+
+<h3>secondStreetCode <a></a>
+</h3>
+
+<ul>
+<li>
+<em>Functions</em>: blockface, intersection</li>
+<li>
+<em>Length and Format</em>: 11 bytes. Numeric</li>
+</ul><p><em>Description</em>: 11 digit street code composed of 1 byte borough code and 10 digit street code of the second input street. See <a href="#types-b10sc">B10SC</a>.</p>
+
+<h3>secondStreetNameNormalized <a></a>
+</h3>
+
+<ul>
+<li>
+<em>Functions</em>: blockface, intersection</li>
+<li>
+<em>Length and Format</em>: 32 bytes. Alphanumeric</li>
+</ul><p><em>Description</em>: Normalized name of second input street</p>
+
+<h3>thirdStreetCode <a></a>
+</h3>
+
+<ul>
+<li>
+<em>Functions</em>: blockface</li>
+<li>
+<em>Length and Format</em>: 11 bytes. Numeric</li>
+</ul><p><em>Description</em>: 11 digit street code composed of 1 byte borough code and 10 digit street code of the third input street. See <a href="#types-b10sc">B10SC</a>.</p>
+
+<h3>thirdStreetNameNormalized <a></a>
+</h3>
+
+<ul>
+<li>
+<em>Functions</em>: blockface, intersection</li>
+<li>
+<em>Length and Format</em>: 32 bytes. Alphanumeric</li>
+</ul><p><em>Description</em>: Normalized name of third input street</p>
+
+<hr><h2>Types</h2>
+
+<p>This section defines New York City-specific datatypes.</p>
+
+<h3>B10SC <a></a>
+</h3>
+
+<p>The B10SC is an eleven digit street code that is composed of the 1 digit borough code plus the 10 digit borough-specific street code.</p>
+
+<h3>House Number <a></a>
+</h3>
+
+<p>Address numbers identify buildings along streets, and are combined with street names and addressable place names or with street codes (as surrogates of street names or place names) to form addresses. Address numbers are commonly called ‘house’ numbers (although this term is a misnomer, since many addresses refer to buildings other than houses). New York City house numbers consist of a ‘basic house number’, possibly followed by a ‘house number suffix’. (Note: the basic house number and house number suffix are not to be confused with the digits to the left and right of the hyphen in a hyphenated house number. For example, in the Queens address ‘240-55 1/3 DEPEW AVENUE’, ‘240-55’ is the basic house number, and is hyphenated; ‘1/3’ is the house number suffix.) Only a very small percentage of New York City addresses have house number suffixes.</p>
+
+<hr><h2>Address</h2>
+
+
+
+<p>Address requests are handled by calling Geosupport function 1B. Function 1B returns blockface-level information and political geography, followed by property level information for a given input. Work Area 2 consists of the output of a Function 1E call with Mode Switch = 'X' followed by the output of a Function 1A call with Mode Switch = 'X'. The input requires borough or zip code, address number if needed, and street name or street code. Function 1B retrieves the tax lot and building information from the PAD file based on the input. The block face and political data are then retrieved from the GRID and the Election files for the address set by the building level information.</p>
+
+<p><a href="#wa1-attributeBytes">attributeBytes</a>
+<a href="#wa1-bbl">bblBoroughCode</a>
+<a href="#wa1-bbl">bblTaxBlock</a>
+<a href="#wa1-bbl">bblTaxLot</a>
+<a href="#wa1-bbl">bbl</a>
+<a href="#wa1-buildingIdentificationNumber">buildingIdentificationNumber</a>
+<a href="#wa1-firstBoroughName">firstBoroughName</a>
+<a href="#wa1-firstStreetCode">firstStreetCode</a>
+<a href="#wa1-firstStreetNameNormalized">firstStreetNameNormalized</a>
+<a href="#wa1-geosupportReturnCode">geosupportReturnCode</a>
+<a href="#wa1-">houseNumberSortFormat</a>
+<a href="#wa1-">houseNumber</a>
+<a href="#wa1-">lowHouseNumberSortFormat</a>
+<a href="#wa1-">lowHouseNumber</a>
+<a href="#wa1-message">message</a>
+<a href="#wa1-">nin</a>
+<a href="#wa1-">numberOfStreetCodesAndNamesInList</a>
+<a href="#wa1-reasonCode">reasonCode</a>
+<a href="#wa1-secondStreetCode">secondStreetCode</a>
+<a href="#wa1-secondStreetNameNormalized">secondStreetNameNormalized</a>
+<a href="#wa1-">streetAttributeIndicator</a>
+<a href="#wa1-">streetCode<code>N</code></a>
+<a href="#wa1-">streetName<code>N</code></a>
+<a href="#wa1-thirdStreetCode">thirdStreetCode</a>
+<a href="#wa1-thirdStreetNameNormalized">thirdStreetNameNormalized</a></p>
+
+<hr><h2>Geosupport Return Codes and Reject Handling</h2>
+
+<p>Geosupport has an elaborate apparatus to support application problem-handling. There are three output fields that are used to inform calling applications of the outcome of each call to Geosupport.  These fields are the Geosupport Return Code (GRC), the Reason Code and the Message.</p>
       </section>
-      <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Geoclient maintained by <a href="https://github.com/mlipper">mlipper</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-		
+
+    
+
   </body>
 </html>
