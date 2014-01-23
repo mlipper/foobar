@@ -39,11 +39,12 @@ application. At the current time, there are six types of location requests
 that the Geoclient service provides:</p>
 
 <table>
-<tr>
+<thead><tr>
 <th>Type</th>
 <th>Description</th>
 <th>Geosupport Function</th>
-</tr>
+</tr></thead>
+<tbody>
 <tr>
 <td>Address</td>
 <td>Given a valid address, provides blockface-level, property-level, and political information.</td>
@@ -74,6 +75,7 @@ that the Geoclient service provides:</p>
 <td>Same as 'Address' above using well-known NYC place name for input.</td>
 <td>1B</td>
 </tr>
+</tbody>
 </table><h2>
 <a name="roadmap" class="anchor" href="#roadmap"><span class="octicon octicon-link"></span></a><a>Roadmap</a>
 </h2>
@@ -172,11 +174,12 @@ for more details. </p>
 <p><strong>Parameters:</strong></p>
 
 <table>
-<tr>
+<thead><tr>
 <th>Parameter Name</th>
 <th>Required/Optional</th>
 <th>Comments</th>
-</tr>
+</tr></thead>
+<tbody>
 <tr>
 <td>houseNumber</td>
 <td>required</td>
@@ -192,6 +195,7 @@ for more details. </p>
 <td>required</td>
 <td>Valid values defined in <a href="#section-1.1">section 1.1</a>.</td>
 </tr>
+</tbody>
 </table><p><strong>Example Requests:</strong></p>
 
 <pre><code>/v1/address.json?houseNumber=314&amp;street=west 100 st&amp;borough=manhattan&amp;app_id=abc123&amp;app_key=def456
@@ -200,7 +204,7 @@ for more details. </p>
 
 <p><strong>Example JSON Response</strong></p>
 
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight highlight-json"><pre><span class="p">{</span>
   <span class="nt">"address"</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">"assemblyDistrict"</span><span class="p">:</span> <span class="s2">"69"</span><span class="p">,</span>
     <span class="nt">"bbl"</span><span class="p">:</span> <span class="s2">"1018887502"</span><span class="p">,</span>
@@ -342,7 +346,7 @@ for more details. </p>
 
 <p><strong>Example XML Response</strong></p>
 
-<div class="highlight"><pre><span class="nt">&lt;geosupportResponse&gt;</span>
+<div class="highlight highlight-xml"><pre><span class="nt">&lt;geosupportResponse&gt;</span>
   <span class="nt">&lt;address&gt;</span>
     <span class="nt">&lt;assemblyDistrict&gt;</span>28<span class="nt">&lt;/assemblyDistrict&gt;</span>
     <span class="nt">&lt;attributeBytes&gt;</span>H<span class="nt">&lt;/attributeBytes&gt;</span>
@@ -498,11 +502,12 @@ for more details. </p>
 <p><strong>Parameters:</strong></p>
 
 <table>
-<tr>
+<thead><tr>
 <th>Parameter Name</th>
 <th>Required/Optional</th>
 <th>Comments</th>
-</tr>
+</tr></thead>
+<tbody>
 <tr>
 <td>borough</td>
 <td>required</td>
@@ -518,6 +523,7 @@ for more details. </p>
 <td>required</td>
 <td>Tax lot.</td>
 </tr>
+</tbody>
 </table><p><strong>Example Requests:</strong></p>
 
 <p>/v1/bbl.json?borough=manhattan&amp;block=1889&amp;lot=1&amp;app_id=abc123&amp;app_key=def456
@@ -525,7 +531,7 @@ for more details. </p>
 
 <p><strong>Example JSON Response</strong></p>
 
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight highlight-json"><pre><span class="p">{</span>
    <span class="nt">"bbl"</span><span class="p">:</span>
    <span class="p">{</span>
        <span class="nt">"bbl"</span><span class="p">:</span> <span class="s2">"1018890001"</span><span class="p">,</span>
@@ -582,7 +588,7 @@ for more details. </p>
 
 <p><strong>Example XML Response</strong></p>
 
-<div class="highlight"><pre><span class="nt">&lt;geosupportResponse&gt;</span>
+<div class="highlight highlight-xml"><pre><span class="nt">&lt;geosupportResponse&gt;</span>
   <span class="nt">&lt;bbl&gt;</span>
     <span class="nt">&lt;bbl&gt;</span>1000670001<span class="nt">&lt;/bbl&gt;</span>
     <span class="nt">&lt;bblBoroughCode&gt;</span>1<span class="nt">&lt;/bblBoroughCode&gt;</span>
@@ -661,16 +667,16 @@ for more details. </p>
 <p><strong>Parameters:</strong></p>
 
 <table>
-<tr>
+<thead><tr>
 <th>Parameter Name</th>
 <th>Required/Optional</th>
 <th>Comments</th>
-</tr>
-<tr>
+</tr></thead>
+<tbody><tr>
 <td>bin</td>
 <td>required</td>
 <td>Building identification number.</td>
-</tr>
+</tr></tbody>
 </table><p><strong>Example Requests:</strong></p>
 
 <pre><code>/v1/bin.json?bin=1079043&amp;app_id=abc123&amp;app_key=def456
@@ -679,7 +685,7 @@ for more details. </p>
 
 <p><strong>Example JSON Response</strong></p>
 
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight highlight-json"><pre><span class="p">{</span>
    <span class="nt">"bin"</span><span class="p">:</span>
    <span class="p">{</span>
        <span class="nt">"bbl"</span><span class="p">:</span> <span class="s2">"1000670001"</span><span class="p">,</span>
@@ -750,7 +756,7 @@ for more details. </p>
 
 <p><strong>Example XML Response</strong></p>
 
-<div class="highlight"><pre><span class="nt">&lt;geosupportResponse&gt;</span>
+<div class="highlight highlight-xml"><pre><span class="nt">&lt;geosupportResponse&gt;</span>
   <span class="nt">&lt;bin&gt;</span>
     <span class="nt">&lt;bbl&gt;</span>1018890001<span class="nt">&lt;/bbl&gt;</span>
     <span class="nt">&lt;bblBoroughCode&gt;</span>1<span class="nt">&lt;/bblBoroughCode&gt;</span>
@@ -811,11 +817,12 @@ for more details. </p>
 <p><strong>Parameters:</strong></p>
 
 <table>
-<tr>
+<thead><tr>
 <th>Parameter Name</th>
 <th>Required/Optional</th>
 <th>Comments</th>
-</tr>
+</tr></thead>
+<tbody>
 <tr>
 <td>onStreet</td>
 <td>required</td>
@@ -851,6 +858,7 @@ for more details. </p>
 <td>optional</td>
 <td>Used to request information about only one side of the street. Valid values are: <code>N</code>, <code>S</code>, <code>E</code> or <code>W</code>.</td>
 </tr>
+</tbody>
 </table><p><strong>Example Requests:</strong></p>
 
 <pre><code>/v1/blockface.json?onStreet=amsterdam ave&amp;crossStreetOne=w 110 st&amp;crossStreetTwo=w 111 st&amp;borough=manhattan&amp;app_id=abc123&amp;app_key=def456
@@ -860,7 +868,7 @@ for more details. </p>
 
 <p><strong>Example JSON Response</strong></p>
 
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight highlight-json"><pre><span class="p">{</span>
    <span class="nt">"blockface"</span><span class="p">:</span>
    <span class="p">{</span>
        <span class="nt">"boroughCode1In"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>
@@ -959,7 +967,7 @@ for more details. </p>
 
 <p><strong>Example XML Response</strong></p>
 
-<div class="highlight"><pre><span class="nt">&lt;geosupportResponse&gt;</span>
+<div class="highlight highlight-xml"><pre><span class="nt">&lt;geosupportResponse&gt;</span>
   <span class="nt">&lt;blockface&gt;</span>
     <span class="nt">&lt;boroughCode1In&gt;</span>1<span class="nt">&lt;/boroughCode1In&gt;</span>
     <span class="nt">&lt;coincidentSegmentCount&gt;</span>1<span class="nt">&lt;/coincidentSegmentCount&gt;</span>
@@ -1067,11 +1075,12 @@ for more details. </p>
 <p><strong>Parameters:</strong></p>
 
 <table>
-<tr>
+<thead><tr>
 <th>Parameter Name</th>
 <th>Required/Optional</th>
 <th>Comments</th>
-</tr>
+</tr></thead>
+<tbody>
 <tr>
 <td>crossStreetOne</td>
 <td>required</td>
@@ -1097,6 +1106,7 @@ for more details. </p>
 <td>optional for most requests</td>
 <td>Required for streets that intersect more than once. Valid values are: <code>N</code>, <code>S</code>, <code>E</code> or <code>W</code>.</td>
 </tr>
+</tbody>
 </table><p><strong>Example Requests:</strong></p>
 
 <pre><code>/v1/intersection.json?crossStreetOne=broadway&amp;crossStreetTwo=w 99 st&amp;borough=manhattan&amp;app_id=abc123&amp;app_key=def456
@@ -1106,7 +1116,7 @@ for more details. </p>
 
 <p><strong>Example JSON Response</strong></p>
 
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight highlight-json"><pre><span class="p">{</span>
    <span class="nt">"intersection"</span><span class="p">:</span>
    <span class="p">{</span>
        <span class="nt">"assemblyDistrict"</span><span class="p">:</span> <span class="s2">"69"</span><span class="p">,</span>
@@ -1174,7 +1184,7 @@ for more details. </p>
 
 <p><strong>Example XML Response</strong></p>
 
-<div class="highlight"><pre><span class="nt">&lt;geosupportResponse&gt;</span>
+<div class="highlight highlight-xml"><pre><span class="nt">&lt;geosupportResponse&gt;</span>
   <span class="nt">&lt;intersection&gt;</span>
     <span class="nt">&lt;assemblyDistrict&gt;</span>69<span class="nt">&lt;/assemblyDistrict&gt;</span>
     <span class="nt">&lt;attributeBytes&gt;</span>M<span class="nt">&lt;/attributeBytes&gt;</span>
@@ -1253,11 +1263,12 @@ for more details. </p>
 <p><strong>Parameters:</strong></p>
 
 <table>
-<tr>
+<thead><tr>
 <th>Parameter Name</th>
 <th>Required/Optional</th>
 <th>Comments</th>
-</tr>
+</tr></thead>
+<tbody>
 <tr>
 <td>name</td>
 <td>required</td>
@@ -1268,6 +1279,7 @@ for more details. </p>
 <td>required</td>
 <td>Valid values <a href="#section-1.1">section 1.1</a>.</td>
 </tr>
+</tbody>
 </table><p><strong>Example Requests:</strong></p>
 
 <pre><code>/v1/place.json?name=empire state building&amp;borough=manhattan&amp;app_id=abc123&amp;app_key=def456
@@ -1276,7 +1288,7 @@ for more details. </p>
 
 <p><strong>Example JSON Response</strong></p>
 
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight highlight-json"><pre><span class="p">{</span>
    <span class="nt">"place"</span><span class="p">:</span>
    <span class="p">{</span>
        <span class="nt">"assemblyDistrict"</span><span class="p">:</span> <span class="s2">"75"</span><span class="p">,</span>
@@ -1454,7 +1466,7 @@ for more details. </p>
 
 <p><strong>Example XML Response</strong></p>
 
-<div class="highlight"><pre><span class="nt">&lt;geosupportResponse&gt;</span>
+<div class="highlight highlight-xml"><pre><span class="nt">&lt;geosupportResponse&gt;</span>
   <span class="nt">&lt;place&gt;</span>
     <span class="nt">&lt;assemblyDistrict&gt;</span>36<span class="nt">&lt;/assemblyDistrict&gt;</span>
     <span class="nt">&lt;attributeBytes&gt;</span>B<span class="nt">&lt;/attributeBytes&gt;</span>
@@ -1596,10 +1608,11 @@ detailed information.</p>
 <p>In brief, here are the most commonly returned HTTP status codes:</p>
 
 <table>
-<tr>
+<thead><tr>
 <th align="right">HTTP Status Code</th>
 <th>Meaning</th>
-</tr>
+</tr></thead>
+<tbody>
 <tr>
 <td align="right">200</td>
 <td>The call successfully reached the Geoclient application. Application-level return codes contain information on success or failure of the call (see <a href="#section-2.2">section 2.2</a>
@@ -1617,6 +1630,7 @@ detailed information.</p>
 <td align="right">500</td>
 <td>The Geoclient service could not process the request due to an internal server error.</td>
 </tr>
+</tbody>
 </table><h3>
 <a name="22---geosupport-return-codes" class="anchor" href="#22---geosupport-return-codes"><span class="octicon octicon-link"></span></a><a>2.2 - Geosupport Return Codes</a>
 </h3>
@@ -2340,7 +2354,7 @@ by each call type. It also provides a brief description of each element which
 includes format and coded value information.</p>
       </section>
       <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
